@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pushups (Front)</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../lib/materialize.min.css" media="screen,projection">
+
+        <link rel="stylesheet" type="text/css" href="../main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.min.js"></script>
+        <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+        <script id="logicScript" src="../scripts/exerciseType1.js" exercise-name="pushupsFront_Final" sequence="up down up" ></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper black">
+                <a href="#" class="brand-logo center">Pushups</a>
+            </div>
+        </nav>
+        <div id="main-content" class="container">
+            <div id="first-card" class="card center flow-text">
+                <div id="predictedResult"></div>
+                <div id="cameraHolder"></div>
+                <div id="start-status"></div>
+            </div>
+            <div id="second-card" class="card center flow-text hide">
+                <div id="timer"></div>
+                <div id="counter"></div>
+                <div>
+                    <svg id="up-svg" height="100" width="100" style="background-color:whitesmoke;">
+                        <text x="50%" y="55%"
+                            fill="white"
+                            dominant-baseline="middle"
+                            text-anchor="middle"
+                            font-size="50px">
+                            UP
+                        </text>
+                    </svg>
+                    <svg id="down-svg" height="100" width="100" style="background-color:whitesmoke;">
+                        <text x="50%" y="55%"
+                            fill="white"
+                            dominant-baseline="middle"
+                            text-anchor="middle"
+                            font-size="50px">
+                            DN
+                        </text>
+                    </svg>
+                </div>
+                <div id="status"></div>
+            </div>
+            <div id="third-card" class="card center flow-text hide">
+                FITSCORE
+                <div class="card black flow-text" style="color: white;">
+                    <h4><b>Pushups</b></h4>
+                    <hr>
+                    <p>Score :- 
+                        <b id="scorecard-score" style="font-size: xx-large;">??</b>
+                        | Time :- 
+                        <b id="scorecard-time" style="font-size: xx-large;">??</b> secs
+                    </p>
+                </div>
+                <p style="font-size:x-small;">Generated at <b id="scorecard-generation-time">??/??/??, ??:??:?? ??</b></p>
+            </div>
+            
+        </div>
+        <div class="center" style="padding: 10px;">
+            <button class="btn-floating waves-effect waves-light black" type="button" title="Home" onclick="location.href='../index.html'">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="btn-floating waves-effect waves-light black" type="button" title="Fullscreen" onclick="fullscreen(!fullscreen());">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+        <script src="../lib/materialize.min.js"></script>
+    </body>
+</html>
