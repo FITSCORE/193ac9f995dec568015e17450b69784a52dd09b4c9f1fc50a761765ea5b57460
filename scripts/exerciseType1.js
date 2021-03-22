@@ -30,7 +30,10 @@ function setupPoseNet(){
 }
 
 function setupBrain(){
-  brain = ml5.neuralNetwork();
+  const brainOptions = {
+    task: 'classification'
+  };
+  brain = ml5.neuralNetwork(brainOptions);
   const modelDetails = {
     model: modelLoc+'model.json',
     metadata: modelLoc+'model_meta.json',
