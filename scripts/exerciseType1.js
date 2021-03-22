@@ -25,7 +25,7 @@ function setupPoseNet(){
     detectionType: 'single',
     inputResolution: 224,
     multiplier: 0.75,
-  }
+  };
   poseNet = ml5.poseNet(video, poseNetOptions,() => console.log("PoseNet Ready"));
 }
 
@@ -35,7 +35,7 @@ function setupBrain(){
     model: modelLoc+'model.json',
     metadata: modelLoc+'model_meta.json',
     weights: modelLoc+'model.weights.bin'
-  }
+  };
   brain.load(modelDetails, modelReady);
 }
 
