@@ -14,7 +14,7 @@ body {
     background-color: rgba(0,0,0,0.1);
 }
 #main-content {
-    font-size: 200;
+    font-size: xx-large;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -26,8 +26,14 @@ body {
     min-width: 100px;
     border-radius: var(--borderRadius);
 }
+
+#predictedResult {
+    font-size: xx-large;
+    flex: 1;
+}
+
 #start-status {
-    font-size:large;
+    font-size: xx-large;
 }
 #counter {
     font-size: xxx-large;
