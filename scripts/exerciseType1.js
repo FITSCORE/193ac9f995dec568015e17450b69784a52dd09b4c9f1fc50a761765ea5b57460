@@ -57,7 +57,7 @@ function setup(){
 
   //Camera Setup
   video = createCapture(VIDEO);
-  video.size(500,500);
+  video.size(450,500);
   video.parent('cameraHolder');
   //video.hide();
 
