@@ -133,7 +133,7 @@ function gotResults(error, results){
       } else {
         startCounting.resetcount();
       }
-      updateStartStatus("Hold"+countSequence[0].toUpperCase()+" position  "+startCounting.timeRemaining+" __.")
+      updateStartStatus("Hold "+countSequence[0].toUpperCase()+" pose  "+startCounting.timeRemaining+" __.")
     }
     changeSvg();
   } else {
@@ -176,7 +176,7 @@ class Counter{
 function updateData(){
   select("#timer").html("Time: " + timer.timeRemaining + " sec ")
   select("#counter").html("Reps: "+ correctCount);
-  select("#predictedResult").html("Predicted Position: " + predictedLabel.toUpperCase());
+  select("#predictedResult").html("Predicted Pose: " + predictedLabel.toUpperCase());
 }
 
 function updateStatus(status){
