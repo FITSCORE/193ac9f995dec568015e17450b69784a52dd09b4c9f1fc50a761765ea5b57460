@@ -57,7 +57,7 @@ function setup(){
 
   //Camera Setup
   video = createCapture(VIDEO);
-  video.size(300,300);
+  video.size(400,400);
   video.parent('cameraHolder');
   //video.hide();
 
@@ -133,7 +133,7 @@ function gotResults(error, results){
       } else {
         startCounting.resetcount();
       }
-      updateStartStatus("Hold "+countSequence[0].toUpperCase()+" pose  "+startCounting.timeRemaining+" __.")
+      updateStartStatus("Hold"+countSequence[0].toUpperCase()+" "+startCounting.timeRemaining+" __.")
     }
     changeSvg();
   } else {
@@ -176,7 +176,7 @@ class Counter{
 function updateData(){
   select("#timer").html("Time: " + timer.timeRemaining + " sec ")
   select("#counter").html("Reps: "+ correctCount);
-  select("#predictedResult").html("Predicted Pose: " + predictedLabel.toUpperCase());
+  select("#predictedResult").html("Predicted: " + predictedLabel.toUpperCase());
 }
 
 function updateStatus(status){
