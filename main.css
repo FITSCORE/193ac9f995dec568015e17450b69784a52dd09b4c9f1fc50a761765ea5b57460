@@ -28,18 +28,18 @@ body {
 }
 
 #predictedResult {
-    font-size: 400;
+    font-size: 40px;
     flex: 1;
 }
 
 #start-status {
-    font-size: xx-large;
+    font-size: 40px;
 }
 #timer {
-    font-size: xxx-large;
+    font-size: 40px;
 }
 #counter {
-    font-size: xxx-large;
+    font-size: 40px;
 }
 video {
     transform: scaleX(-1);
