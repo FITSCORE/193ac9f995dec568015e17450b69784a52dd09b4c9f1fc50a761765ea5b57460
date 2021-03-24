@@ -57,7 +57,7 @@ function setup(){
 
   //Camera Setup
   video = createCapture(VIDEO);
-  video.size(400,400);
+  video.size(500,500);
   video.parent('cameraHolder');
   //video.hide();
 
@@ -133,7 +133,7 @@ function gotResults(error, results){
       } else {
         startCounting.resetcount();
       }
-      updateStartStatus("Hold"+countSequence[0].toUpperCase()+" "+startCounting.timeRemaining+" __.")
+      updateStartStatus("Hold"+countSequence[0].toUpperCase()+" for "+startCounting.timeRemaining+"sec.")
     }
     changeSvg();
   } else {
