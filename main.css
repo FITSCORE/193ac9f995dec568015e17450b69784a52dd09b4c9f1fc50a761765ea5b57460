@@ -43,7 +43,7 @@ body {
 }
 video {
     transform: scaleX(-1);
-    background-color: black;
+   
     border-radius: var(--borderRadius);
 }
 svg {

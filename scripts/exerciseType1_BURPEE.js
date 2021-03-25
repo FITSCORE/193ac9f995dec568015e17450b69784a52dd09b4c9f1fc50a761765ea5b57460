@@ -203,21 +203,30 @@ function setScoreCard() {
 
 function changeSvg(){
   let upSvg = document.getElementById("up-svg");
+  let squatSvg = document.getElementById("squat-svg");
   let downSvg = document.getElementById("down-svg");
   if (predictedLabel.toUpperCase() == "UP"){
     upSvg.style.backgroundColor = "green";
     downSvg.style.backgroundColor = "whitesmoke";
+    squatSvg.style.backgroundColor = "whitesmoke";
   }
   else if (predictedLabel.toUpperCase() == "DOWN"){
     upSvg.style.backgroundColor = "whitesmoke";
     downSvg.style.backgroundColor = "green";
+    squatSvg.style.backgroundColor = "whitesmoke";
+  }
+  else if (predictedLabel.toUpperCase() == "SQUAT"){
+    upSvg.style.backgroundColor = "whitesmoke";
+    downSvg.style.backgroundColor = "whitesmoke";
+    squatSvg.style.backgroundColor = "green";
   }
 }
 
 function resetSvg(){
   let upSvg = document.getElementById("up-svg");
-  let downSvg = document.getElementById("down-svg");
+  let squatSvg = document.getElementById("squat-svg");
+  let downSvg = document.getElementById("down-svg");  
   upSvg.style.backgroundColor = "whitesmoke";
+  squatSvg.style.backgroundColor = "whitesmoke";
   downSvg.style.backgroundColor = "whitesmoke";
-  
 }

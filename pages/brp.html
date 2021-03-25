@@ -11,7 +11,7 @@
         <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-        <script id="logicScript" src="../scripts/exerciseType1.js" exercise-name="squats" sequence="up squat down squat up" ></script>
+        <script id="logicScript" src="../scripts/exerciseType1_BURPEE.js" exercise-name="squats" sequence="up squat down squat up" ></script>
     </head>
     <body>
         <nav>
@@ -38,6 +38,15 @@
                             UP
                         </text>
                     </svg>
+                    <svg id="squat-svg" height="100" width="100" style="background-color:whitesmoke;">
+                        <text x="50%" y="55%"
+                            fill="white"
+                            dominant-baseline="middle"
+                            text-anchor="middle"
+                            font-size="50px">
+                            sq
+                        </text>
+                    </svg>
                     <svg id="down-svg" height="100" width="100" style="background-color:whitesmoke;">
                         <text x="50%" y="55%"
                             fill="white"
@@ -46,7 +55,7 @@
                             font-size="50px">
                             DN
                         </text>
-                    </svg>
+                    </svg>                   
                 </div>
                 <div id="status"></div>
             </div>
