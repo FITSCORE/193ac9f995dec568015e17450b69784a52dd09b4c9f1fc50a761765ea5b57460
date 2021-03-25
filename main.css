@@ -50,7 +50,7 @@ svg {
     border-radius: var(--borderRadius);
 }
 .card {
-    min-width: 300px;
+    min-width: 40px;
     padding: 2vmin;
     margin: 2px;
     border-radius: var(--borderRadius);
