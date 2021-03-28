@@ -6,7 +6,7 @@ let poseNet;
 let pose, skeleton;
 let brain;
 
-let minCon = 0.8;
+let minCon = 0.9;
 
 let predictedLabel = "NULL";
 let currentCardName = "first-card";
