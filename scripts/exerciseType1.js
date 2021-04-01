@@ -6,7 +6,7 @@ let poseNet;
 let pose, skeleton;
 let brain;
 
-let minCon = 0.9;
+let minCon;
 
 let predictedLabel = "NULL";
 let currentCardName = "first-card";
@@ -16,6 +16,7 @@ function scriptSetup(){
   let exerciseName =  script.getAttribute('exercise-name');
   modelLoc += (exerciseName+"/");
   countSequence = script.getAttribute('sequence').split(' ');
+  minCon = parseFloat(script.getAttribute('min-confidence'));
 }
 
 function setupPoseNet(){
