@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>P U</title>
+        <title>BRP</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../lib/materialize.min.css" media="screen,projection">
 
@@ -11,7 +11,7 @@
         <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-        <script id="logicScript" src="../scripts/exerciseType1.js" exercise-name="Burpee" sequence="up down up" min-confidence="0.95"></script>
+        <script id="logicScript" src="../scripts/exerciseType1.js" exercise-name="Burpee" sequence="up down up" min-confidence="0.8"></script>
     </head>
     <body>
         <nav>
@@ -21,9 +21,9 @@
         </nav>
         <div id="main-content" class="container">
             <div id="first-card" class="card center flow-text">
+                <div id="predictedResult"></div>
                 <div id="cameraHolder"></div>
                 <div id="start-status"></div>
-                <div id="predictedResult"></div>
             </div>
             <div id="second-card" class="card center flow-text hide">
                 <div id="timer"></div>
@@ -34,8 +34,17 @@
                             fill="white"
                             dominant-baseline="middle"
                             text-anchor="middle"
-                            font-size="30px">
+                            font-size="50px">
                             UP
+                        </text>
+                    </svg>
+                    <svg id="squat-svg" height="100" width="100" style="background-color:whitesmoke;">
+                        <text x="50%" y="55%"
+                            fill="white"
+                            dominant-baseline="middle"
+                            text-anchor="middle"
+                            font-size="50px">
+                            sq
                         </text>
                     </svg>
                     <svg id="down-svg" height="100" width="100" style="background-color:whitesmoke;">
@@ -43,10 +52,10 @@
                             fill="white"
                             dominant-baseline="middle"
                             text-anchor="middle"
-                            font-size="30px">
+                            font-size="50px">
                             DN
                         </text>
-                    </svg>
+                    </svg>                   
                 </div>
                 <div id="status"></div>
             </div>
