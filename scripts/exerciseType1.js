@@ -122,7 +122,7 @@ function gotResults(error, results){
         loadCard("third-card");
         video.remove();
       }
-    } 
+    }
     if (startCounting.getState == "FINISHED"){
       if (currentCardName == "first-card"){
         loadCard("second-card");
