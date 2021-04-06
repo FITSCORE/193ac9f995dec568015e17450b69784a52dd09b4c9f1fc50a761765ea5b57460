@@ -57,8 +57,14 @@ function setup(){
   noCanvas();
 
   //Camera Setup
-  video = createCapture(VIDEO);
-  video.size(350,350);
+  const videoOptions = {
+    video: {
+      optional: [{maxAspectRatio: 1}]
+    },
+    audio: false
+  }
+  video = createCapture(videoOptions);
+  video.size(320,320);
   video.parent('cameraHolder');
   //video.hide();
 
