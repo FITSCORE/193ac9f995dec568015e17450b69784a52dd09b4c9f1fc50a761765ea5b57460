@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Padmasan</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../lib/materialize.min.css" media="screen,projection">
+
+        <link rel="stylesheet" type="text/css" href="../main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.min.js"></script>
+        <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+
+        <script src="../scripts/utils.js"></script> <!-- PRIORITY SCRIPT (MUST BE IMPORTED BEFORE LOGICSCRIPT) -->
+        <script id="logicScript" src="../scripts/exerciseType2.js" model-name="holdpose_resnet" exercise-name="BOW" min-confidence="0.95"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper black">
+                <a href="#" class="brand-logo center">BOW</a>
+            </div>
+        </nav>
+        <div id="main-content">
+            <div id="first-card" class="card center flow-text">
+                <div id="predictedResult"></div>
+                <div id="cameraHolder"></div>
+                <div id="start-status"></div>
+            </div>
+            <div id="second-card" class="card center flow-text hide">
+                <div id="timer" style="font-size: xxx-large;"></div>
+                <div id="status" style="font-size: xxx-large;"></div>
+            </div>
+            <div id="third-card" class="card center flow-text hide">
+                FITSCORE
+                <div class="card black flow-text" style="color: white;">
+                    <h4><b>Padmasan</b></h4>
+                    <img id="user-image" width=200 height=200></img>
+                    <p>
+                        Time :- 
+                        <b id="scorecard-time" style="font-size: xx-large;">??</b> secs
+                    </p>
+                </div>
+                <p style="font-size:x-small;">Generated at <b id="scorecard-generation-time">??/??/??, ??:??:?? ??</b></p>
+            </div>
+            
+        </div>
+        <div class="center" style="padding: 10px;">
+            <button class="btn-floating waves-effect waves-light black" type="button" title="Fullscreen" onclick="location.reload();">
+                <i class="material-icons">refresh</i>
+            </button>
+            <button class="btn-floating btn-large waves-effect waves-light black" type="button" title="Home" onclick="location.href='../index.html'">
+                <i class="material-icons">home</i>
+            </button>
+            <button class="btn-floating waves-effect waves-light black" type="button" title="Fullscreen" onclick="fullscreen(!fullscreen());">
+                <i class="material-icons">fullscreen</i>
+            </button>
+        </div>
+        <script src="../lib/materialize.min.js"></script>
+    </body>
+</html>

@@ -130,10 +130,11 @@ function gotResults(error, results){
     } else {
       if (predictedLabel == poseToDetect){
         startCounting.count();
+        console.log("start");
       } else {
         startCounting.resetcount();
       }
-      updateStartStatus("Hold "+poseToDetect+" "+startCounting.timeRemaining+" sec.")
+      updateStartStatus("Hold "+poseToDetect+" position for "+startCounting.timeRemaining+" sec to START.")
     }
   } else {
     startCounting.resetcount();
@@ -184,7 +185,7 @@ class Counter{
 function updateData(){
     select("#timer").html("Time: " + timer.timeRemaining + " sec ")
     // select("#counter").html("Reps: "+ correctCount);
-    select("#predictedResult").html("Predicted: " + predictedLabel.toUpperCase());
+    select("#predictedResult").html("Predicted Position: " + predictedLabel.toUpperCase());
 }
   
 function updateStatus(status){

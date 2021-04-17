@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>P U</title>
+        <title>TREE</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../lib/materialize.min.css" media="screen,projection">
 
@@ -11,49 +11,28 @@
         <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-        <script id="logicScript" src="../scripts/exerciseType1.js" exercise-name="situp" sequence="up down up" min-confidence="0.8"></script>
+        <script id="logicScript" src="../scripts/exerciseType2.js" model-name="holdpose_resnet" exercise-name="tree" min-confidence="0.6"></script>
     </head>
     <body>
         <nav>
             <div class="nav-wrapper black">
-                <a href="#" class="brand-logo center">S U</a>
+                <a href="#" class="brand-logo center">TREE</a>
             </div>
         </nav>
         <div id="main-content" class="container">
             <div id="first-card" class="card center flow-text">
+                <div id="predictedResult"></div>
                 <div id="cameraHolder"></div>
                 <div id="start-status"></div>
-                <div id="predictedResult"></div>
             </div>
             <div id="second-card" class="card center flow-text hide">
-                <div id="timer"></div>
-                <div id="counter"></div>
-                <div>
-                    <svg id="up-svg" height="100" width="100" style="background-color:whitesmoke;">
-                        <text x="50%" y="55%"
-                            fill="white"
-                            dominant-baseline="middle"
-                            text-anchor="middle"
-                            font-size="30px">
-                            UP
-                        </text>
-                    </svg>
-                    <svg id="down-svg" height="100" width="100" style="background-color:whitesmoke;">
-                        <text x="50%" y="55%"
-                            fill="white"
-                            dominant-baseline="middle"
-                            text-anchor="middle"
-                            font-size="30px">
-                            DN
-                        </text>
-                    </svg>
-                </div>
-                <div id="status"></div>
+                <div id="timer" style="font-size: xxx-large;"></div>
+                <div id="status" style="font-size: xxx-large;"></div>
             </div>
             <div id="third-card" class="card center flow-text hide">
                 FITSCORE
                 <div class="card black flow-text" style="color: white;">
-                    <h4><b>S U</b></h4>
+                    <h4><b>Padma</b></h4>
                     <hr>
                     <p>Score :- 
                         <b id="scorecard-score" style="font-size: xx-large;">??</b>
