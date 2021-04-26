@@ -9,17 +9,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.min.js"></script>
         <!-- <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script> -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
+        <script src="../scripts/utils.js"></script> <!-- PRIORITY SCRIPT (MUST BE IMPORTED BEFORE LOGICSCRIPT) -->
         <script id="logicScript" src="../scripts/exerciseType3.js"></script>
     </head>
     <body>
         <nav>
             <div class="nav-wrapper black">
-                <a href="#" class="brand-logo center truncate">12 Minutes Run</a>
+                <a href="#" class="brand-logo center truncate">12 MiN R</a>
             </div>
         </nav>
-        <div id="main-content" class="container">
+        <div id="main-content">
             <div id="first-card" class="card center flow-text">
                 <!-- <div id="predictedResult"></div> -->
                 <!-- <div id="cameraHolder"></div> -->
@@ -51,11 +51,14 @@
             
         </div>
         <div class="center" style="padding: 10px;">
-            <button class="btn-floating waves-effect waves-light black" type="button" title="Home" onclick="location.href='../index.html'">
-                <i class="fas fa-home"></i>
+            <button class="btn-floating waves-effect waves-light black" type="button" title="Fullscreen" onclick="location.reload();">
+                <i class="material-icons">refresh</i>
+            </button>
+            <button class="btn-floating btn-large waves-effect waves-light black" type="button" title="Home" onclick="location.href='../index.html'">
+                <i class="material-icons">home</i>
             </button>
             <button class="btn-floating waves-effect waves-light black" type="button" title="Fullscreen" onclick="fullscreen(!fullscreen());">
-                <i class="fas fa-expand"></i>
+                <i class="material-icons">fullscreen</i>
             </button>
         </div>
         <script src="../lib/materialize.min.js"></script>

@@ -10,6 +10,7 @@ let minCon;
 
 let predictedLabel = "NULL";
 let currentCardName = "first-card";
+// let userImage; 
 
 function scriptSetup(){
   let script = document.getElementById('logicScript');
@@ -26,20 +27,17 @@ function setupPoseNet(){
     detectionType: 'single',
     inputResolution: 224,
     multiplier: 0.75,
-  };
+  }
   poseNet = ml5.poseNet(video, poseNetOptions,() => console.log("PoseNet Ready"));
 }
 
 function setupBrain(){
-  const brainOptions = {
-    task: 'classification'
-  };
-  brain = ml5.neuralNetwork(brainOptions);
+  brain = ml5.neuralNetwork();
   const modelDetails = {
     model: modelLoc+'model.json',
     metadata: modelLoc+'model_meta.json',
     weights: modelLoc+'model.weights.bin'
-  };
+  }
   brain.load(modelDetails, modelReady);
 }
 
@@ -72,6 +70,7 @@ function setup(){
   poseNet.on('pose', gotPoses);
 
   setupBrain();
+  frameRate(1);
 }
 
 function gotPoses(poses){  
@@ -128,19 +127,20 @@ function gotResults(error, results){
         loadCard("third-card");
         video.remove();
       }
-    }
-    if (startCounting.getState == "FINISHED"){
+    } 
+    if (startCounting.state == "FINISHED"){
       if (currentCardName == "first-card"){
         loadCard("second-card");
+        // userImage = takePhoto(video);
+        timer.start();
       }
-      timer.count();
     } else {
       if (predictedLabel == countSequence[0]){
         startCounting.count();
       } else {
         startCounting.resetcount();
       }
-      updateStartStatus("Hold "+countSequence[0].toUpperCase()+" for "+startCounting.timeRemaining+"sec.")
+      updateStartStatus("Hold "+countSequence[0].toUpperCase()+" for "+startCounting.timeRemaining+"sec")
     }
     changeSvg();
   } else {
@@ -152,38 +152,19 @@ function gotResults(error, results){
   classifyPose();
 }
 
-class Counter{
-  constructor(counterTime){
-    this.counterTime = counterTime;
-    this.state = "NONE";
-    this.timePassed = 0;
-  }
-  get timeRemaining(){
-    return this.counterTime - this.timePassed;
-  }
-  get getState(){
-    return this.state;
-  }
-  count(){
-    if (this.timeRemaining == 0){
-      this.state = "FINISHED";
-    }
-    if (this.state == "NONE"){ 
-      this.state = "COUNTING";
-      setTimeout(() => {this.state = "NONE"; this.timePassed += 1;}, 1000);
-    }
-  }
-  resetcount(){
-    if (this.state != "FINISHED"){
-      this.timePassed = 0;
-    }
+function draw(){
+  if (startCounting.state == "FINISHED" &&
+      (timer.state == "NONE" || timer.state == "COUNTING") &&
+      timer.timePassed % 10 == 0)
+  {
+    addPhoto("user-exercise-imgs-card", video);
   }
 }
 
 function updateData(){
   select("#timer").html("Time: " + timer.timeRemaining + " sec ")
   select("#counter").html("Reps: "+ correctCount);
-  select("#predictedResult").html("Predicted: " + predictedLabel.toUpperCase());
+  select("#predictedResult").html("Predicted Position: " + predictedLabel.toUpperCase());
 }
 
 function updateStatus(status){
@@ -203,9 +184,10 @@ function loadCard(cardName) {
 function setScoreCard() {
   select("#scorecard-score").html(correctCount);
   select("#scorecard-time").html(timer.counterTime);
-  
+  // document.getElementById('user-image').src = userImage;
   let date = new Date();
   select("#scorecard-generation-time").html(date.toLocaleString());
+  document.getElementById('user-exercise-imgs-card').classList.toggle('hide');
 }
 
 function changeSvg(){

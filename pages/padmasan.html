@@ -11,12 +11,12 @@
         <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
 
         <script src="../scripts/utils.js"></script> <!-- PRIORITY SCRIPT (MUST BE IMPORTED BEFORE LOGICSCRIPT) -->
-        <script id="logicScript" src="../scripts/exerciseType2.js" model-name="holdpose_resnet" exercise-name="padmasan" min-confidence="0.9"></script>
+        <script id="logicScript" src="../scripts/exerciseType2.js" model-name="holdpose" exercise-name="padmasan" min-confidence="0.9"></script>
     </head>
     <body>
         <nav>
             <div class="nav-wrapper black">
-                <a href="#" class="brand-logo center">Padm</a>
+                <a href="#" class="brand-logo center">Padmasan</a>
             </div>
         </nav>
         <div id="main-content">
@@ -26,20 +26,22 @@
                 <div id="start-status"></div>
             </div>
             <div id="second-card" class="card center flow-text hide">
-                <div id="timer" style="font-size: xxx-large;"></div>
-                <div id="status" style="font-size: xxx-large;"></div>
+                <div id="timer"></div>
+                <div id="status"></div>
             </div>
             <div id="third-card" class="card center flow-text hide">
                 FITSCORE
                 <div class="card black flow-text" style="color: white;">
                     <h4><b>Padmasan</b></h4>
-                    <img id="user-image" width=200 height=200></img>
+                    <!-- <img id="user-image" width=200 height=200></img> -->
                     <p>
                         Time :- 
                         <b id="scorecard-time" style="font-size: xx-large;">??</b> secs
                     </p>
                 </div>
                 <p style="font-size:x-small;">Generated at <b id="scorecard-generation-time">??/??/??, ??:??:?? ??</b></p>
+            </div>
+            <div id="user-exercise-imgs-card" class="card center flow-text hide">
             </div>
             
         </div>

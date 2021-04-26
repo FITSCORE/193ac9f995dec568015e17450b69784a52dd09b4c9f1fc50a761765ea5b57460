@@ -4,6 +4,7 @@ let startPosition = null;
 let currentPosition, currentAccuracy ;
 let watchPositon;
 let distanceCovered = 0;
+let timerIntervalId = null;
 
 const minAccuracy = 5; //in meters
 function setup(){
@@ -50,9 +51,12 @@ function startNavigation(){
       currentAccuracy = position.coords.accuracy;
 
       if (startPosition == null){
-        setStartPoint();
+        if(setStartPoint()){
+          timerIntervalId = setInterval(() => {
+            select("#timer").html("Time : " + Math.floor(timer.timeRemaining/60) + " min "+ timer.timeRemaining%60 + " sec ");
+          },0);
+        }
       }
-
       if (currentAccuracy <= minAccuracy){
         lapButton.removeAttribute('disabled');
       } else {
@@ -79,6 +83,7 @@ function stopNavigation(){
   stopButton.hide();
   lapButton.hide();
   timer.stop();
+  clearInterval(timerIntervalId);
   setScoreCard();
   loadCard("third-card");
 }
@@ -88,9 +93,11 @@ function setStartPoint(){
   startPosition = [currentPosition[0],currentPosition[1]];
   updateStatus("GPS Acquired");
   timer.start();
+  return true;
   } else {
     updateStatus("GPS Acquiring, Please Wait");
     select("#gps-accuracy").html("Accuracy: "+(currentAccuracy).toFixed(4));
+    return false;
   }
 }
 
@@ -128,54 +135,4 @@ function setScoreCard() {
   
   let date = new Date();
   select("#scorecard-generation-time").html(date.toLocaleString());
-}
-
-//haversine formula
-function calculateDistance(lat1, lon1, lat2, lon2) {
-  const R = 6371; // km
-  // const R = 6371 * 1000; // m
-  let dLat = (lat2 - lat1).toRad();
-  let dLon = (lon2 - lon1).toRad(); 
-  let a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
-          Math.sin(dLon / 2) * Math.sin(dLon / 2); 
-  let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
-  let d = R * c;
-  return d;
-}
-Number.prototype.toRad = function() {
-  return this * Math.PI / 180;
-}
-
-
-class Counter{
-  constructor(counterTime){
-    this.counterTime = counterTime;
-    this.state = "NONE";
-    this.timePassed = 0;
-  }
-  get timeRemaining(){
-    return this.counterTime - this.timePassed;
-  }
-  start(){
-    this.starttrigger = setInterval(()=> {this.count()},0);
-  }
-  stop(){
-    clearInterval(this.starttrigger);
-  }
-  count(){
-    select("#timer").html("Time Remaining: " + Math.floor(timer.timeRemaining/60) + " min "+ timer.timeRemaining%60 + " sec ");
-    if (this.timeRemaining == 0){
-      this.state = "FINISHED";
-    }
-    if (this.state == "NONE"){ 
-      this.state = "COUNTING";
-      setTimeout(() => {this.state = "NONE"; this.timePassed += 1;}, 1000);
-    }
-  }
-  resetcount(){
-    if (this.state != "FINISHED"){
-      this.timePassed = 0;
-    }
-  }
 }
