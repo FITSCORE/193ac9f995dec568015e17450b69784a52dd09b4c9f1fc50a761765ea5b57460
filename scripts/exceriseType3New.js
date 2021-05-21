@@ -65,7 +65,7 @@ function startNavigation(){
       updateGPSData();
 
 
-      if (distanceCovered === distanceLimit){
+      if (distanceCovered >= distanceLimit){
         stopNavigation();
       }
     },
