@@ -4,7 +4,7 @@ let startPosition = null;
 let currentPosition, currentAccuracy ;
 let watchPositon;
 let distanceCovered = 0;
-let distanceLimit = 100;
+let distanceLimit = 30;
 // let timerIntervalId = null;
 
 const minAccuracy = 15; //in meters
